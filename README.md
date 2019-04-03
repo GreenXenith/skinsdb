@@ -1,6 +1,8 @@
 # skinsdb
 
 This Minetest mod offers changeable player skins with a graphical interface for multiple inventory mods.
+### WARNING:
+**Cannot guarantee compatibillity with anything other than unified_inventory. Not tested without character_creator.** 
 
 ## Features
 
