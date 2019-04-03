@@ -7,11 +7,11 @@
 
 skins = {}
 skins.modpath = minetest.get_modpath(minetest.get_current_modname())
-skins.default = "character"
+skins.default = "character_1"
 
 local S
 if minetest.get_modpath("intllib") then
-	skins.S = intllib.Getter()
+	skins.S = intllib.make_gettext_pair()
 else
 	skins.S = function(s) return s end
 end
@@ -39,7 +39,9 @@ if minetest.global_exists("armor") then
 	end
 	armor.get_preview = function(self, name)
 		local skin = skins.get_player_skin(minetest.get_player_by_name(name))
-		return skin:get_preview()
+		local m_format = skin:get_meta_string("format")
+		local preview = skin:get_preview(skin:get_texture(), m_format)
+		return preview
 	end
 	armor.update_player_visuals = function(self, player)
 		if not player then

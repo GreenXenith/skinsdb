@@ -47,6 +47,9 @@ function skins.update_player_skin(player)
 			sfinv.set_player_inventory_formspec(player)
 		end
 	end
+	if minetest.global_exists("newhand2") then
+		newhand2.update_hand(player)
+	end
 end
 
 -- Assign and update - should be used on selection externally
